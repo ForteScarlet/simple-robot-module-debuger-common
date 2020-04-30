@@ -1,0 +1,3 @@
+debugger.processor.on= [debugger] 接收消息：{0}
+exception.debugger.error= [debugger] 出现异常! {0}
+exception.debugger.noType= [debugger] 无法找到类型[{0}]所对应的MsgGet类型。

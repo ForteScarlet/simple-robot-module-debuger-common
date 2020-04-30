@@ -1,0 +1,18 @@
+# 发送数据
+debugger.server.write= [debugger] 向远程端发送数据：{0}
+# 关闭服务
+debugger.server.close= [debugger] 关闭服务
+# 开启
+debugger.server.start= [debugger] 开启等待客户端连接...
+debugger.server.start.finish= [debugger] 服务启动成功。
+# 服务启动失败
+debugger.server.start.failed= [debugger] 服务启动失败 {0}
+
+## 连接
+debugger.server.connected= [debugger] 客户端[{0}]连接
+debugger.server.disconnect= [debugger] 客户端[{0}]断开连接
+
+debugger.server.error.warning= [debugger] 出现异常! (详细错误日志请开启DEBUG日志查看) {0}
+debugger.server.error.debug= [debugger] 出现异常!
+debugger.server.onMsg= [debugger] 接收到消息：{0}
+debugger.server.onUnknown= [debugger] 接收到未知消息：{0}

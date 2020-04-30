@@ -1,0 +1,9 @@
+debugger.client.connected= [debugger] 连接成功 {0}
+debugger.client.disconnect= [debugger] 断开连接 {0}
+
+debugger.client.error.warning= [debugger] 出现异常! (详细错误日志请开启DEBUG日志查看) {0}
+debugger.client.error.debug= [debugger] 出现异常!
+
+debugger.client.onMsg= [debugger] 接收到消息：{0}
+debugger.client.onUnknown= [debugger] 接收到未知消息：{0}
+
