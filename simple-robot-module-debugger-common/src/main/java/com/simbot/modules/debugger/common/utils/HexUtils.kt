@@ -4,7 +4,7 @@ package com.simbot.modules.debugger.common.utils
  *
  * byte\[]数组转16进制工具类
  *
- * @author ForteScarlet <[email]ForteScarlet@163.com>
+ * @author ForteScarlet <\[email]ForteScarlet@163.com>
  * @since JDK1.8
  **/
 object HexUtils {
@@ -37,13 +37,13 @@ object HexUtils {
         val size = array.size
 
         var m: Int
-        var n = 0
+        var n: Int
 
         for(i in 0 until size){
             m = i * 2
             n = m + 2
-            val intVal = Integer.parseInt(data.substring(m, n), 16)
-            array[i] = java.lang.Byte.valueOf(intVal.toByte())
+            val intVal = data.substring(m, n).toInt(16)
+            array[i] = intVal.toByte()
         }
 
         return array
