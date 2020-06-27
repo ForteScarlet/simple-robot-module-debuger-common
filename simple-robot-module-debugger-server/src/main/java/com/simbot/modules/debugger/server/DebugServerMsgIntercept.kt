@@ -20,11 +20,10 @@ interface DebugServerMsgIntercept : MsgIntercept {
 
 /**
  * 一切放行的拦截器
- * @author ForteScarlet <[email]ForteScarlet@163.com>
+ * @author ForteScarlet <\[email]ForteScarlet@163.com>
  * @since JDK1.8
  */
 class DebugServerDefaultMsgIntercept : DebugServerMsgIntercept {
-
     override fun intercept(context: MsgGetContext): Boolean {
         // 永远放行
         return true
@@ -33,7 +32,7 @@ class DebugServerDefaultMsgIntercept : DebugServerMsgIntercept {
 
 /**
  * 拦截并推送给所有客户端
- * @author ForteScarlet <[email]ForteScarlet@163.com>
+ * @author ForteScarlet <\[email]ForteScarlet@163.com>
  * @since JDK1.8
  */
 class DebugServerNormalIntercept(

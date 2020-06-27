@@ -23,6 +23,13 @@ class TestPrivateMsg : PrivateMsg {
     override fun getMsg(): String {
         return "test hello"
     }
+
+    /**
+     * 可以获取昵称
+     * @return nickname
+     */
+    override fun getNickname(): String = "nickname"
+
     override fun setMsg(newMsg: String) {}
     override fun getFont(): String {
         return "114514"
@@ -30,6 +37,13 @@ class TestPrivateMsg : PrivateMsg {
     override fun getTime(): Long? {
         return System.currentTimeMillis()
     }
+
+    /**
+     * 获取备注信息，例如群备注，或者好友备注。
+     * @return 备注信息
+     */
+    override fun getRemark(): String = "remark"
+
     override fun getOriginalData(): String {
         return "test original data"
     }

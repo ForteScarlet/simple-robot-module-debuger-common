@@ -42,7 +42,7 @@ data class DebugServerConfiguration(
  *
  * debug netty socket server
  *
- * @author ForteScarlet <[email]ForteScarlet@163.com>
+ * @author ForteScarlet <\[email]ForteScarlet@163.com>
  * @since JDK1.8
  **/
 open class DebugServerImpl(

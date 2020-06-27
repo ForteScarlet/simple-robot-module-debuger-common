@@ -28,10 +28,19 @@ class DebugContext(
         botManager  : BotManager,
         msgParser   : MsgParser,
         processor   : MsgProcessor,
-        dependCenter: DependCenter
-): SimpleRobotContext<DebugSenders, DebugSenders, DebugSenders>(
-        DebugSenders,DebugSenders,DebugSenders,botManager,msgParser, processor, dependCenter
-)
+        dependCenter: DependCenter,
+        config: DebugConfiguration,
+        application: DebugApplication
+): SimpleRobotContext<DebugSenders, DebugSenders, DebugSenders, DebugConfiguration, DebugApplication>(
+        DebugSenders,DebugSenders,DebugSenders,botManager,msgParser, processor, dependCenter, config, application
+){
+    // get controller
+    val controller: DebugController by lazy { dependCenter[DebugController::class.java] }
+
+
+
+}
+
 
 /**
  * debug的一个随便的BotInfo。每次创建都会有一个随机的QQ号和一个随机的域名。如果不指定的话。
@@ -60,17 +69,18 @@ open class DebugApplication : BaseApplication<
         DebugSenders,
         DebugSenders,
         DebugSenders,
+        DebugApplication,
         DebugContext
         >() {
 
     /** 获取debug context */
-    override fun getComponentContext(defaultSenders: DefaultSenders<DebugSenders, DebugSenders, DebugSenders>, manager: BotManager, msgParser: MsgParser, processor: MsgProcessor, dependCenter: DependCenter): DebugContext {
-        return DebugContext(manager, msgParser, processor, dependCenter)
+    override fun getComponentContext(defaultSenders: DefaultSenders<DebugSenders, DebugSenders, DebugSenders>, manager: BotManager, msgParser: MsgParser, processor: MsgProcessor, dependCenter: DependCenter, config: DebugConfiguration): DebugContext {
+        return DebugContext(manager, msgParser, processor, dependCenter, config, this)
     }
 
     /** run server , 也没啥好run的*/
     override fun runServer(dependCenter: DependCenter?, manager: ListenerManager?, msgProcessor: MsgProcessor?, msgParser: MsgParser?): String {
-        return "=Debug module="
+        return "Debugger模组"
     }
 
     /**
@@ -112,7 +122,7 @@ open class DebugApplication : BaseApplication<
     override fun getRootSenderFunction(botManager: BotManager?): Function<MsgGet, RootSenderList> = Function { DebugSenders }
 
 
-    override fun close() {}
+    override fun doClose() {  }
     override fun getConfiguration(): DebugConfiguration = DebugConfiguration()
 }
 

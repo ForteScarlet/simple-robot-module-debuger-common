@@ -68,7 +68,8 @@ data class DebuggerPrivateMsg(
         @MockValue("@csentence", param = "1-3") override var dgMsg: String? = null,
         @MockValue("0", param = "0-1000", valueType = Int::class) override var dgFont: String? = null,
         @MockValue("0", param = "100000-1999999", valueType = Int::class) var dgQQ: String? = null,
-        var dgType: PrivateMsgType = PrivateMsgType.FROM_FRIEND
+        var dgType: PrivateMsgType = PrivateMsgType.FROM_FRIEND,
+        @MockValue("@name") var dgNickname: String? = null
 
 ) : DebuggerBaseMsgGet(1, dgOriginalData, dgThisCode, dgId, dgMsg, dgFont = dgFont), PrivateMsg {
     companion object {
@@ -79,6 +80,8 @@ data class DebuggerPrivateMsg(
 
     override fun getQQ() = dgQQ
     override fun getType() = dgType
+    override fun getRemark() = dgNickname
+    override fun getNickname() = dgNickname
 }
 
 /** debugger group msg */
@@ -92,7 +95,8 @@ data class DebuggerGroupMsg(
         @MockValue("0", param = "100000-1999999", valueType = Int::class) var dgQQ: String? = null,
         @MockValue("0", param = "100000-1999999", valueType = Int::class) var dgGroup: String? = null,
         var dgPowerType: PowerType = PowerType.MEMBER,
-        var dgType: GroupMsgType = GroupMsgType.NORMAL_MSG
+        var dgType: GroupMsgType = GroupMsgType.NORMAL_MSG,
+        @MockValue("@name") var dgNickname: String? = null
 ) : DebuggerBaseMsgGet(2, dgOriginalData, dgThisCode, dgId, dgMsg, dgFont = dgFont), GroupMsg {
     companion object {
         @JvmStatic
@@ -109,6 +113,8 @@ data class DebuggerGroupMsg(
     }
 
     override fun getType() = dgType
+    override fun getRemark() = dgNickname
+    override fun getNickname() = dgNickname
 }
 
 /** debugger discuss msg */
@@ -120,7 +126,8 @@ data class DebuggerDiscussMsg(
         @MockValue("@csentence", param = "1-3") override var dgMsg: String? = null,
         @MockValue("0", param = "0-1000", valueType = Int::class) override var dgFont: String? = null,
         @MockValue("0", param = "100000-1999999", valueType = Int::class) var dgQQ: String? = null,
-        @MockValue("0", param = "100000-1999999", valueType = Int::class) var dgGroup: String? = null
+        @MockValue("0", param = "100000-1999999", valueType = Int::class) var dgGroup: String? = null,
+        @MockValue("@name") var dgNickname: String? = null
 ) : DebuggerBaseMsgGet(3, dgOriginalData, dgThisCode, dgId, dgMsg, dgFont = dgFont), DiscussMsg {
     companion object {
         @JvmStatic
@@ -131,6 +138,8 @@ data class DebuggerDiscussMsg(
 
     override fun getQQ() = dgQQ
     override fun getGroup() = dgGroup
+    override fun getRemark() = dgNickname
+    override fun getNickname() = dgNickname
 }
 
 /** debugger group ban */

@@ -15,6 +15,7 @@ import com.simbot.modules.debugger.common.utils.SerializationHelper;
  * @author ForteScarlet <[email]ForteScarlet@163.com>
  * @since JDK1.8
  **/
+@SuppressWarnings("unused")
 @Beans
 public class DebugServerModuleConfiguration {
 
@@ -67,6 +68,7 @@ public class DebugServerModuleConfiguration {
         configProperties.injectToConfig(config);
         return config;
     }
+
 
 
 }
